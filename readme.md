@@ -1,6 +1,6 @@
 # gulp-ejs-json [![Build Status](https://travis-ci.org/woods-ming/gulp-ejs-json.svg?branch=master)](https://travis-ci.org/woods-ming/gulp-ejs-json)
 
-> My impeccable gulp plugin
+> ejs gulp plugin: compile *.ejs with json at server side
 
 
 ## Install
@@ -28,14 +28,14 @@ gulp.task('default', function () {
 
 ### ejsJson(options)
 
-#### options
+#### options(reffrence ejs options)
 
-##### foo
+##### filename
 
-Type: `boolean`  
-Default: `false`
+Type: `string`  
+Default: `null`
 
-Lorem ipsum.
+template path: [./template.ejs].
 
 
 ## License
