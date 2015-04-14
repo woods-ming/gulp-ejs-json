@@ -1,6 +1,6 @@
 # gulp-ejs-json [![Build Status](https://travis-ci.org/woods-ming/gulp-ejs-json.svg?branch=master)](https://travis-ci.org/woods-ming/gulp-ejs-json)
 
-> ejs gulp plugin: compile *.ejs with json at server side
+> ejs gulp plugin: static controller with ejs(template engine)
 
 
 ## Install
@@ -15,11 +15,12 @@ $ npm install --save-dev gulp-ejs-json
 ```js
 var gulp = require('gulp');
 var ejsJson = require('gulp-ejs-json');
+var gutil = require('./node_modules/gulp/node_modules/gulp-util');
 
-gulp.task('default', function () {
-	return gulp.src('src/*.json')
-		.pipe(ejsJson({ filename: './templates/test.ejs' }).on('error', gutil.log))
-		.pipe(gulp.dest('dist'));
+gulp.task('default', function() {
+	return gulp.src('models/demo.json')
+	    .pipe(ejsJson({ filename: 'views/demo.ejs' }).on('error', gutil.log))
+	    .pipe(gulp.dest('dist'));
 });
 ```
 
@@ -35,7 +36,7 @@ gulp.task('default', function () {
 Type: `string`  
 Default: `null`
 
-template path: [./template.ejs].
+view path: 'views/demo.ejs'.
 
 
 ## License
