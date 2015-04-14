@@ -18,7 +18,7 @@ var ejsJson = require('gulp-ejs-json');
 
 gulp.task('default', function () {
 	return gulp.src('src/*.json')
-		.pipe(ejsJson({ filename: './templates/test.ejs' }))
+		.pipe(ejsJson({ filename: './templates/test.ejs' }).on('error', gutil.log))
 		.pipe(gulp.dest('dist'));
 });
 ```
@@ -28,7 +28,7 @@ gulp.task('default', function () {
 
 ### ejsJson(options)
 
-#### options(reffrence ejs options)
+#### options(as ejs options)
 
 ##### filename
 
