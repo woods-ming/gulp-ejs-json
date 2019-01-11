@@ -4,6 +4,7 @@ const PluginError = require('plugin-error');
 const through = require('through2');
 const ejs = require('ejs');
 const fs = require('fs');
+const replaceExt = require('replace-ext');
 
 module.exports = options => {
   return through.obj(function(file, enc, next) {
@@ -17,7 +18,7 @@ module.exports = options => {
 				var data = JSON.parse(file.contents.toString());
 	        	var str = fs.readFileSync(options.filename,'utf-8');
 				file.contents = new Buffer(ejs.render(str, data, options));
-				file.path = gutil.replaceExtension(file.path, ".html");
+				file.path = replaceExt(file.path, ".html");
 				this.push(file);
 			} catch (err) {
 				let opts = Object.assign({}, options, { fileName: file.path });
